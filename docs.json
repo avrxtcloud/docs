@@ -1,113 +1,112 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "AVRXT Docs",
-  "colors": {
-    "primary": "#10B981",
-    "light": "#34D399",
-    "dark": "#065F46"
-  },
-  "favicon": "/images/favicon.jpg",
-  "font": {
-    "headings": "Space Grotesk",
-    "body": "Manrope"
-  },
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Documentation",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "index"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API",
-        "groups": [
-          {
-            "group": "Core",
-            "pages": [
-              "api/introduction",
-              "api/authentication"
-            ]
-          },
-          {
-            "group": "Public Intake",
-            "pages": [
-              "api/subscribe",
-              "api/contact",
-              "api/hireme"
-            ]
-          },
-          {
-            "group": "Spotify",
-            "pages": [
-              "api/spotify-auth",
-              "api/spotify-callback",
-              "api/now-playing"
-            ]
-          },
-          {
-            "group": "Monitoring",
-            "pages": [
-              "api/health",
-              "api/status"
-            ]
-          }
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Main Site",
-          "href": "https://avrxt.in",
-          "icon": "globe"
-        },
-        {
-          "anchor": "Status",
-          "href": "https://status.avrxt.in",
-          "icon": "activity"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/images/logo.png?v=2",
-    "dark": "/images/logo.png?v=2"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Website",
-        "href": "https://avrxt.in"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Contact",
-      "href": "https://avrxt.in/contact"
-    }
-  },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "cursor",
-      "vscode"
-    ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/avrxt_",
-      "github": "https://github.com/avrxtcloud"
-    }
-  }
+    "$schema":  "https://mintlify.com/docs.json",
+    "theme":  "mint",
+    "name":  "AVRXT Docs",
+    "colors":  {
+                   "primary":  "#10B981",
+                   "light":  "#34D399",
+                   "dark":  "#065F46"
+               },
+    "favicon":  "https://jirohobyxsihzbpopsse.supabase.co/storage/v1/object/public/images/favicon.jpg",
+    "font":  {
+                 "headings":  "Space Grotesk",
+                 "body":  "Manrope"
+             },
+    "navigation":  {
+                       "tabs":  [
+                                    {
+                                        "tab":  "Documentation",
+                                        "groups":  [
+                                                       {
+                                                           "group":  "Getting Started",
+                                                           "pages":  [
+                                                                         "index"
+                                                                     ]
+                                                       }
+                                                   ]
+                                    },
+                                    {
+                                        "tab":  "API",
+                                        "groups":  [
+                                                       {
+                                                           "group":  "Core",
+                                                           "pages":  [
+                                                                         "api/introduction",
+                                                                         "api/authentication"
+                                                                     ]
+                                                       },
+                                                       {
+                                                           "group":  "Public Intake",
+                                                           "pages":  [
+                                                                         "api/subscribe",
+                                                                         "api/contact",
+                                                                         "api/hireme"
+                                                                     ]
+                                                       },
+                                                       {
+                                                           "group":  "Spotify",
+                                                           "pages":  [
+                                                                         "api/spotify-auth",
+                                                                         "api/spotify-callback",
+                                                                         "api/now-playing"
+                                                                     ]
+                                                       },
+                                                       {
+                                                           "group":  "Monitoring",
+                                                           "pages":  [
+                                                                         "api/health",
+                                                                         "api/status"
+                                                                     ]
+                                                       }
+                                                   ]
+                                    }
+                                ],
+                       "global":  {
+                                      "anchors":  [
+                                                      {
+                                                          "anchor":  "Main Site",
+                                                          "href":  "https://avrxt.in",
+                                                          "icon":  "globe"
+                                                      },
+                                                      {
+                                                          "anchor":  "Status",
+                                                          "href":  "https://status.avrxt.in",
+                                                          "icon":  "activity"
+                                                      }
+                                                  ]
+                                  }
+                   },
+    "logo":  {
+                 "light":  "https://jirohobyxsihzbpopsse.supabase.co/storage/v1/object/public/images/logo.png",
+                 "dark":  "https://jirohobyxsihzbpopsse.supabase.co/storage/v1/object/public/images/logo.png"
+             },
+    "navbar":  {
+                   "links":  [
+                                 {
+                                     "label":  "Website",
+                                     "href":  "https://avrxt.in"
+                                 }
+                             ],
+                   "primary":  {
+                                   "type":  "button",
+                                   "label":  "Contact",
+                                   "href":  "https://avrxt.in/contact"
+                               }
+               },
+    "contextual":  {
+                       "options":  [
+                                       "copy",
+                                       "view",
+                                       "chatgpt",
+                                       "claude",
+                                       "cursor",
+                                       "vscode"
+                                   ]
+                   },
+    "footer":  {
+                   "socials":  {
+                                   "x":  "https://x.com/avrxt_",
+                                   "github":  "https://github.com/avrxtcloud"
+                               }
+               }
 }
-
