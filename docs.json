@@ -7,7 +7,11 @@
     "light": "#34D399",
     "dark": "#065F46"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/images/favicon.jpg",
+  "font": {
+    "headings": "Space Grotesk",
+    "body": "Manrope"
+  },
   "navigation": {
     "tabs": [
       {
@@ -66,15 +70,15 @@
         },
         {
           "anchor": "Status",
-          "href": "https://ping.avrxt.in",
+          "href": "https://status.avrxt.in",
           "icon": "activity"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/logo.png",
+    "dark": "/images/logo.png"
   },
   "navbar": {
     "links": [
