@@ -1,97 +1,43 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: "Welcome to AVRXT Docs"
+description: "Scalable, secure, and production-ready infrastructure docs for AVRXT products and APIs."
 ---
 
-## Setting up
+# Build Faster With AVRXT
 
-Get your documentation site up and running in minutes.
+AVRXT Docs is your source of truth for integration, reliability, and platform usage.
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
-
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
-
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
+<CardGroup cols={2}>
+  <Card title="API Reference" icon="terminal" href="/api/introduction">
+    Explore REST endpoints, auth, and request/response patterns.
   </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
+  <Card title="System Status" icon="activity" href="https://ping.avrxt.in">
+    Live health status and service uptime.
   </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
-  </Card>
-</Columns>
+</CardGroup>
 
-## Create beautiful pages
+## Platform Focus
 
-Everything you need to create world-class documentation.
+- Secure-by-default API patterns.
+- Predictable request and response contracts.
+- Fast onboarding for product and engineering teams.
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+## Quick Start Flow
 
-## Need inspiration?
+<Steps>
+  <Step title="Get an API key">
+    Request credentials from the AVRXT team and keep them in your server-side environment.
+  </Step>
+  <Step title="Authenticate requests">
+    Send your key in the `Authorization: Bearer <token>` header.
+  </Step>
+  <Step title="Use endpoint docs">
+    Start from [/api/introduction](/api/introduction) and follow endpoint-specific payload specs.
+  </Step>
+</Steps>
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+## Architecture Notes
+
+<Info>
+  AVRXT APIs are designed for production workloads and favor explicit validation, observability, and consistent error handling.
+</Info>

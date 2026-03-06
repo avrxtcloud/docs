@@ -1,0 +1,46 @@
+---
+title: "API Introduction"
+description: "Complete API reference generated from avrxt-in route implementations."
+---
+
+# AVRXT API Endpoints
+
+Base URL:
+
+```bash
+https://avrxt.in
+```
+
+This reference covers all routes currently implemented under `src/app/api` in `avrxt-in`.
+
+## Implemented Endpoints
+
+- `POST /api/subscribe`
+- `POST /api/contact`
+- `POST /api/hireme`
+- `GET /api/spotify/auth`
+- `GET /api/spotify/callback`
+- `GET /api/spotify/now-playing`
+- `GET /api/health`
+- `GET /api/status`
+
+## Method Summary
+
+- `POST`: `subscribe`, `contact`, `hireme`
+- `GET`: `spotify/auth`, `spotify/callback`, `spotify/now-playing`, `health`, `status`
+- `OPTIONS`: available for `subscribe`, `contact`, `hireme`
+
+<CardGroup cols={2}>
+  <Card title="Public Intake APIs" icon="paper-plane" href="/api/contact">
+    Contact, subscribe, and hireme payload endpoints.
+  </Card>
+  <Card title="Spotify APIs" icon="music" href="/api/spotify-auth">
+    OAuth flow + now-playing response endpoint.
+  </Card>
+  <Card title="Health API" icon="heart-pulse" href="/api/health">
+    Aggregated readiness and dependency checks.
+  </Card>
+  <Card title="Status API" icon="activity" href="/api/status">
+    Public system status mapped to operational labels.
+  </Card>
+</CardGroup>

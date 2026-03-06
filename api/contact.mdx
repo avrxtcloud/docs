@@ -1,0 +1,51 @@
+---
+title: "POST /api/contact"
+description: "Submit a contact signal to AVRXT."
+---
+
+# `POST /api/contact`
+
+Accepts direct contact submissions, logs to Google Sheets when configured, and can send Gmail notification.
+
+## Request Body
+
+```json
+{
+  "name": "Jane Doe",
+  "email": "jane@company.com",
+  "message": "Need integration support"
+}
+```
+
+All fields are required.
+
+## Success Response
+
+Status `200`:
+
+```json
+{
+  "success": true,
+  "message": "Signal stored and transmitted."
+}
+```
+
+## Error Responses
+
+- `400` `{"error":"Missing required fields"}`
+- `500` `{"error":"SYSTEM_FAILURE","details":"..."}`
+
+## Behavior Notes
+
+- Google Sheets write failure does not automatically fail the request.
+- Gmail send is attempted only when `GMAIL_APP_PASSWORD` is present.
+- Endpoint still returns success if Gmail is not configured and core flow completes.
+
+## Example
+
+```bash
+curl --request POST \
+  --url https://avrxt.in/api/contact \
+  --header "Content-Type: application/json" \
+  --data '{"name":"Jane Doe","email":"jane@company.com","message":"Need integration support"}'
+```

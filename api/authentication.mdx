@@ -1,0 +1,26 @@
+---
+title: "Authentication"
+description: "Auth expectations for avrxt-in API endpoints."
+---
+
+# Authentication
+
+## Current Behavior
+
+- `POST /api/subscribe`: accepts unauthenticated requests.
+- `POST /api/contact`: accepts unauthenticated requests.
+- `POST /api/hireme`: accepts unauthenticated requests.
+- `GET /api/spotify/now-playing`: accepts unauthenticated requests.
+
+<Warning>
+  These routes are public-facing. Enforce origin/rate controls at edge (CDN/WAF) and avoid exposing admin-only workflows through these endpoints.
+</Warning>
+
+## Internal Service Auth
+
+Although clients do not pass API keys to these routes, server-side integrations use secrets:
+
+- Resend API key + audience ID (`/api/subscribe`)
+- Google service account + sheet IDs (`/api/contact`, `/api/hireme`)
+- Gmail app password (`/api/contact`, `/api/hireme`)
+- Spotify + Supabase credentials (`/api/spotify/now-playing`)

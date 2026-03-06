@@ -1,0 +1,71 @@
+---
+title: "GET /api/spotify/now-playing"
+description: "Retrieve current Spotify playback state with history fallback."
+---
+
+# `GET /api/spotify/now-playing`
+
+Returns current Spotify playback. If nothing is currently playing, it falls back to latest history from Supabase.
+
+<Note>
+  In `avrxt-in`, the implemented route is `/api/spotify/now-playing` (not `/api/now-playing`).
+</Note>
+
+## Request
+
+No request body.
+
+```bash
+curl --request GET \
+  --url https://avrxt.in/api/spotify/now-playing
+```
+
+## Response Shapes
+
+### Active playback
+
+```json
+{
+  "isPlaying": true,
+  "title": "Song Name",
+  "artist": "Artist Name",
+  "album": "Album Name",
+  "albumImageUrl": "https://...",
+  "songUrl": "https://open.spotify.com/...",
+  "progressMs": 38123,
+  "durationMs": 214000
+}
+```
+
+### Not playing but history exists
+
+```json
+{
+  "isPlaying": false,
+  "title": "Last Song",
+  "artist": "Last Artist",
+  "albumImageUrl": "https://...",
+  "playedAt": "2026-03-06T00:00:00.000Z"
+}
+```
+
+### No tokens or no history
+
+```json
+{
+  "isPlaying": false
+}
+```
+
+Possible additional message:
+
+```json
+{
+  "isPlaying": false,
+  "error": "Spotify not connected"
+}
+```
+
+## Error Response
+
+- `500` `{"isPlaying":false,"error":"Internal Server Error"}`

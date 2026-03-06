@@ -1,0 +1,31 @@
+---
+title: "GET /api/spotify/callback"
+description: "OAuth callback that exchanges code, stores tokens, and redirects to admin view."
+---
+
+# `GET /api/spotify/callback`
+
+Consumes Spotify OAuth `code`, exchanges tokens, persists them, then redirects.
+
+## Query Params
+
+- `code` (required): Spotify authorization code.
+
+## Behavior
+
+1. Validates query `code`.
+2. Exchanges code at `https://accounts.spotify.com/api/token`.
+3. Clears existing rows in `spotify_tokens` table.
+4. Inserts new `access_token`, `refresh_token`, and `expires_at`.
+5. Redirects to admin page with success/error flags.
+
+## Redirect Outcomes
+
+- Missing `code`: `/me/admin?error=no_code`
+- Token exchange failed: `/me/admin?error=token_fetch_failed`
+- DB save failed: `/me/admin?error=db_save_failed&msg=...`
+- Success: `/me/admin?success=spotify_connected`
+
+## Response Type
+
+This endpoint is redirect-based, not JSON API output.

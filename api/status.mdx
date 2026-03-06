@@ -1,0 +1,35 @@
+---
+title: "GET /api/status"
+description: "Returns normalized platform status label from Betterstack or public fallback."
+---
+
+# `GET /api/status`
+
+Provides status badge state used by frontend/system displays.
+
+## Data Sources
+
+1. Betterstack API (`BETTERSTACK_API_KEY`, `BETTERSTACK_STATUS_PAGE_ID`)
+2. Fallback parse of `https://status.avrxt.in/badge?theme=dark`
+
+## Response Shape
+
+```json
+{
+  "status": "operational",
+  "label": "Systems Active"
+}
+```
+
+## Possible `status` Values
+
+- `operational`
+- `degraded`
+- `down`
+- `maintenance`
+- `unknown`
+
+## Notes
+
+- Endpoint always returns JSON payload; unknown/offline conditions return `status: "unknown"`.
+- Response uses no-store cache headers for freshness.

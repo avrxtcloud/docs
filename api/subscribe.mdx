@@ -1,0 +1,63 @@
+---
+title: "POST /api/subscribe"
+description: "Subscribe an email to the AVRXT mailing audience."
+---
+
+# `POST /api/subscribe`
+
+Adds a user to the Resend audience and sends a welcome email.
+
+## Request Body
+
+```json
+{
+  "email": "user@example.com"
+}
+```
+
+## Validation and Protection
+
+- Email format check.
+- Domain deny-list (`avrxt.in`, `avrxt.space`, `aviorxt.aero`).
+- Blacklisted addresses blocklist.
+- Disposable/fake detection via `mailcheck.ai` + MX lookup fallback.
+- Rate limit: 5 requests per IP per 24 hours.
+
+## Success Response
+
+Status `200`:
+
+```json
+{
+  "message": "SUCCESSFULLY SUBSCRIBED"
+}
+```
+
+Possible success-with-warning:
+
+```json
+{
+  "message": "SUCCESSFULLY SUBSCRIBED",
+  "warning": "WELCOME_EMAIL_DELAYED"
+}
+```
+
+## Error Responses
+
+- `400` `{"error":"INVALID_EMAIL_FORMAT"}`
+- `403` `{"error":"YOU ARE NOT ALLOWED TO USE THIS DOMAIN"}`
+- `403` `{"error":"IDENTITY_BLACKLISTED: ACCESS_DENIED"}`
+- `403` `{"error":"UPLINK_REJECTED: UNRELIABLE_DOMAIN"}`
+- `409` `{"error":"YOU ARE ALREADY SUBSCRIBED"}`
+- `429` `{"error":"RATE_LIMIT_EXCEEDED: PLEASE_TRY_AGAIN_TOMORROW"}`
+- `503` `{"error":"EMAIL_SERVICE_NOT_CONFIGURED"}`
+- `500` `{"error":"INTERNAL_SYSTEM_FAILURE"}`
+
+## Example
+
+```bash
+curl --request POST \
+  --url https://avrxt.in/api/subscribe \
+  --header "Content-Type: application/json" \
+  --data '{"email":"user@example.com"}'
+```

@@ -1,0 +1,26 @@
+---
+title: "GET /api/spotify/auth"
+description: "Starts Spotify OAuth by redirecting to Spotify authorize URL."
+---
+
+# `GET /api/spotify/auth`
+
+Redirect endpoint that initiates Spotify OAuth authorization flow.
+
+## Behavior
+
+- Builds a Spotify authorize URL with configured `SPOTIFY_CLIENT_ID` and `SPOTIFY_REDIRECT_URI`.
+- Uses scopes:
+  - `user-read-currently-playing`
+  - `user-read-playback-state`
+  - `user-read-recently-played`
+- Responds with HTTP redirect to Spotify Accounts.
+
+## Response
+
+- Redirect (`302`) to `https://accounts.spotify.com/authorize?...`
+
+## Notes
+
+- If `SPOTIFY_CLIENT_ID` is missing, code logs an error, but still attempts redirect URL construction.
+- Default fallback redirect URI in code: `https://127.0.0.1:3000/api/spotify/callback`.

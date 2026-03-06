@@ -1,0 +1,50 @@
+---
+title: "GET /api/health"
+description: "Service health aggregator with dependency checks and latency metrics."
+---
+
+# `GET /api/health`
+
+Returns aggregated health across critical dependencies.
+
+## Checks Executed
+
+- `api/contact` (policy-skipped deep check)
+- `api/hireme` (policy-skipped deep check)
+- `api/spotify/auth+callback` env readiness
+- `api/spotify/now-playing` Supabase reachability
+- `api/subscribe` Resend + DNS reachability
+- `api/status` status provider reachability
+
+## Success and Failure Status
+
+- `200` when all checks pass (`status: "healthy"`)
+- `503` when any check fails (`status: "unhealthy"`)
+
+## Response Shape
+
+```json
+{
+  "status": "healthy",
+  "timestamp": "2026-03-06T00:00:00.000Z",
+  "uptime": 1234.56,
+  "latencyMs": 210,
+  "summary": {
+    "total": 6,
+    "passing": 6,
+    "failing": 0
+  },
+  "checks": [
+    {
+      "name": "api/subscribe",
+      "ok": true,
+      "details": "Resend and DNS reachable",
+      "latencyMs": 83
+    }
+  ]
+}
+```
+
+## Cache Control
+
+`Cache-Control: no-store, max-age=0`

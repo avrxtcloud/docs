@@ -1,0 +1,60 @@
+---
+title: "POST /api/hireme"
+description: "Project intake endpoint for AVRXT service requests."
+---
+
+# `POST /api/hireme`
+
+Project intake pipeline with optional Google Sheets persistence and Gmail notification.
+
+## Request Body
+
+```json
+{
+  "name": "Jane Doe",
+  "email": "jane@company.com",
+  "projectType": "Full Stack Build",
+  "budget": "$3,000-$5,000",
+  "timeline": "4 weeks",
+  "description": "Need a custom product dashboard"
+}
+```
+
+All fields are required.
+
+## Success Response
+
+Status `200`:
+
+```json
+{
+  "message": "Intake successful.",
+  "warning": "SHEETS_CONFIG_MISSING,EMAIL_CONFIG_MISSING"
+}
+```
+
+`warning` is optional and appears when one delivery path is unavailable.
+
+## Error Responses
+
+- `400` `{"message":"Missing required payload fields."}`
+- `503` `{"message":"TRANSMISSION_DENIED","details":"..."}`
+- `500` `{"message":"SYSTEM_FAILURE","details":"..."}`
+
+## Delivery Rule
+
+The endpoint returns success when at least one path works:
+
+- Google Sheets append succeeds, or
+- Gmail notification succeeds.
+
+If both fail/unavailable, it returns `503`.
+
+## Example
+
+```bash
+curl --request POST \
+  --url https://avrxt.in/api/hireme \
+  --header "Content-Type: application/json" \
+  --data '{"name":"Jane Doe","email":"jane@company.com","projectType":"Full Stack Build","budget":"$3,000-$5,000","timeline":"4 weeks","description":"Need a custom product dashboard"}'
+```
