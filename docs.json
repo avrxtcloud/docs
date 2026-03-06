@@ -77,8 +77,8 @@
     }
   },
   "logo": {
-    "light": "/images/logo.png",
-    "dark": "/images/logo.png"
+    "light": "/images/logo.png?v=2",
+    "dark": "/images/logo.png?v=2"
   },
   "navbar": {
     "links": [
@@ -110,3 +110,4 @@
     }
   }
 }
+
